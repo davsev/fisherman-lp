@@ -62,9 +62,14 @@
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(ellipse 130% 50% at 50% 110%, rgba(200,148,26,0.2) 0%, transparent 55%),
-        radial-gradient(ellipse 90% 70% at 15% 20%,  rgba(7,21,46,0.9)    0%, transparent 55%),
-        linear-gradient(165deg, #010810 0%, #02091a 45%, #061428 75%, #0b1e3a 100%);
+        linear-gradient(to bottom,
+          rgba(2,10,24,0.35) 0%,
+          rgba(2,10,24,0.55) 45%,
+          rgba(2,10,24,0.92) 80%,
+          #020a18 100%
+        ),
+        url('https://images.pexels.com/photos/5688674/pexels-photo-5688674.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80')
+        center 35% / cover no-repeat;
     }
 
     /* scanline texture */
@@ -74,7 +79,7 @@
       background: repeating-linear-gradient(
         0deg,
         transparent, transparent 3px,
-        rgba(255,255,255,0.011) 3px, rgba(255,255,255,0.011) 4px
+        rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 4px
       );
       pointer-events:none;
     }
@@ -229,6 +234,101 @@
     .card h3 { font-size:.98rem; font-weight:700; margin-bottom:.25rem; }
     .card p  { font-size:.82rem; color: var(--muted); line-height:1.55; }
 
+    /* ── PRODUCTS ── */
+    .products {
+      padding: 3rem 1.25rem 2rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(37,211,102,0.1);
+      border: 1px solid rgba(37,211,102,0.25);
+      color: var(--wa);
+      font-size: .75rem; font-weight: 700; letter-spacing: .06em;
+      padding: .3rem .9rem; border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .products > h2 {
+      font-size: clamp(1.3rem,5vw,1.8rem);
+      font-weight: 900; margin-bottom: .4rem;
+    }
+    .products > .section-sub {
+      color: var(--muted); font-size: .85rem; margin-bottom: 1.8rem; line-height: 1.5;
+    }
+    .product-grid {
+      display: flex; flex-direction: column; gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      overflow: hidden;
+      display: flex;
+      gap: 0;
+      flex-direction: column;
+    }
+    .product-img {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .product-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .product-card:hover .product-img img { transform: scale(1.04); }
+    .product-tag {
+      position: absolute; top: .75rem; right: .75rem;
+      background: rgba(2,10,24,0.82);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      color: var(--gold-lt);
+      font-size: .72rem; font-weight: 700;
+      padding: .25rem .65rem; border-radius: 100px;
+    }
+    .product-body {
+      padding: 1rem 1.2rem 1.2rem;
+    }
+    .product-body h3 {
+      font-size: 1rem; font-weight: 700; margin-bottom: .3rem;
+    }
+    .product-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: .5rem;
+    }
+    .stars { font-size: .8rem; letter-spacing: .05em; }
+    .price {
+      font-size: 1rem; font-weight: 900;
+      color: var(--gold-lt);
+    }
+    .product-desc {
+      font-size: .82rem; color: var(--muted); line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .btn-deal {
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+      background: var(--navy);
+      border: 1px solid rgba(37,211,102,0.3);
+      color: var(--wa);
+      font-family: inherit; font-size: .88rem; font-weight: 700;
+      text-decoration: none;
+      padding: .7rem 1rem; border-radius: .8rem;
+      width: 100%;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-deal:hover { background: rgba(37,211,102,0.1); border-color: var(--wa); }
+    .products-cta-note {
+      text-align: center;
+      color: var(--muted); font-size: .82rem;
+      margin-bottom: 1.2rem;
+    }
+    .products-cta-note strong { color: var(--text); }
+
     /* ── BOTTOM CTA ── */
     .bottom-cta {
       padding:3rem 1.5rem 8rem;
@@ -335,6 +435,94 @@
       <p>שאלות, תשובות וניסיון אישי — לא מסרים שיווקיים.</p>
     </div>
   </div>
+</section>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section class="products">
+  <div class="section-label">🔥 ממליצים השבוע</div>
+  <h2>הציוד שהקהילה מדברת עליו</h2>
+  <p class="section-sub">דוגמאות למה שתמצא בקבוצה — לינקים ישירים לרכישה עם הנחות בלעדיות לחברים</p>
+
+  <div class="product-grid">
+
+    <!-- Product 1: Lure -->
+    <div class="product-card">
+      <div class="product-img">
+        <img
+          src="https://images.pexels.com/photos/3098597/pexels-photo-3098597.jpeg?auto=compress&cs=tinysrgb&w=800&q=75"
+          alt="פיתיון ג'יג ים"
+          loading="lazy"
+        />
+        <span class="product-tag">🔥 הכי פופולרי</span>
+      </div>
+      <div class="product-body">
+        <h3>פיתיון ג'יג לדיג ים</h3>
+        <div class="product-meta">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">₪35 – ₪65</span>
+        </div>
+        <p class="product-desc">הפיתיון שעושה עבודה — 14 דייגים בקהילה תפסו איתו השבוע. כולל לינק לרכישה במחיר שלא תמצא בחנות.</p>
+        <a href="https://spoo.me/daig-wa" target="_blank" class="btn-deal" onclick="fbq('track','Lead');">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          הצטרף לקבוצה לקבל את הלינק
+        </a>
+      </div>
+    </div>
+
+    <!-- Product 2: Rod & Reel -->
+    <div class="product-card">
+      <div class="product-img">
+        <img
+          src="https://images.pexels.com/photos/8983970/pexels-photo-8983970.jpeg?auto=compress&cs=tinysrgb&w=800&q=75"
+          alt="חכה וגלגל"
+          loading="lazy"
+        />
+        <span class="product-tag">💎 המלצת קהילה</span>
+      </div>
+      <div class="product-body">
+        <h3>גלגל + חכה — סט שלם</h3>
+        <div class="product-meta">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">₪180 – ₪320</span>
+        </div>
+        <p class="product-desc">הסט שהקהילה ממליצה למתחילים ולמתקדמים. איכות מקצועית, מחיר שלא קיים בשום חנות בארץ.</p>
+        <a href="https://spoo.me/daig-wa" target="_blank" class="btn-deal" onclick="fbq('track','Lead');">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          הצטרף לקבוצה לקבל את הלינק
+        </a>
+      </div>
+    </div>
+
+    <!-- Product 3: Catch Action -->
+    <div class="product-card">
+      <div class="product-img">
+        <img
+          src="https://images.pexels.com/photos/13615160/pexels-photo-13615160.jpeg?auto=compress&cs=tinysrgb&w=800&q=75"
+          alt="תפיסת דג"
+          loading="lazy"
+        />
+        <span class="product-tag">⚡ דיל מוגבל</span>
+      </div>
+      <div class="product-body">
+        <h3>חכת זריקה קלת משקל</h3>
+        <div class="product-meta">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">₪95 – ₪150</span>
+        </div>
+        <p class="product-desc">קלה, חזקה, מדויקת. הדייגים בקהילה מדווחים על תפיסות כפולות מאז שעברו אליה.</p>
+        <a href="https://spoo.me/daig-wa" target="_blank" class="btn-deal" onclick="fbq('track','Lead');">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          הצטרף לקבוצה לקבל את הלינק
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="products-cta-note">
+    <strong>רוצה עוד ציוד כזה?</strong><br/>
+    הקהילה מעדכנת דילים חדשים כל שבוע — חינם לגמרי לחברים.
+  </p>
 </section>
 
 <!-- ═══ BOTTOM CTA ═══ -->
