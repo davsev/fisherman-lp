@@ -404,7 +404,7 @@
 <!-- ═══ SOCIAL PROOF ═══ -->
 <div class="proof">
   <div class="proof-num" id="counter">0</div>
-  <div class="proof-label">דייגים פעילים כבר בקבוצה</div>
+  <div class="proof-label">דייגים פעילים כבר בקבוצת השונות</div>
   <div class="proof-pills">
     <span class="pill">✓ חינם לגמרי</span>
     <span class="pill">✓ ציוד שנבדק בשטח</span>
@@ -585,7 +585,7 @@
 
   const io = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
-      animateCount(430, document.getElementById('counter'));
+      animateCount(1200, document.getElementById('counter'));
       io.disconnect();
     }
   });
